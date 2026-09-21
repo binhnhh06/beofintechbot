@@ -1,0 +1,1198 @@
+{
+  "summary": {
+    "total_trades": 118,
+    "win_rate": 61.9,
+    "loss_rate": 38.1,
+    "total_return": 165.6,
+    "avg_return": 1.4,
+    "best_trade": 25.3,
+    "worst_trade": -21.0,
+    "exit_reasons": {
+      "RSI overbought": 84,
+      "Stop-loss": 29,
+      "Take-profit": 5
+    }
+  },
+  "trades": [
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-05-09",
+      "exit_date": "2025-05-22",
+      "entry_price": 6140.0,
+      "exit_price": 6580.0,
+      "pnl_%": 7.17,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-05-26",
+      "exit_date": "2025-05-27",
+      "entry_price": 7550.0,
+      "exit_price": 8180.0,
+      "pnl_%": 8.34,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-05-28",
+      "exit_date": "2025-05-29",
+      "entry_price": 8320.0,
+      "exit_price": 8220.0,
+      "pnl_%": -1.2,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-05-30",
+      "exit_date": "2025-06-02",
+      "entry_price": 8800.0,
+      "exit_price": 8900.0,
+      "pnl_%": 1.14,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-06-25",
+      "exit_date": "2025-07-16",
+      "entry_price": 8800.0,
+      "exit_price": 9820.0,
+      "pnl_%": 11.59,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-07-17",
+      "exit_date": "2025-07-18",
+      "entry_price": 10210.0,
+      "exit_price": 10010.0,
+      "pnl_%": -1.96,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-07-21",
+      "exit_date": "2025-07-23",
+      "entry_price": 9680.0,
+      "exit_price": 10110.0,
+      "pnl_%": 4.44,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-07-28",
+      "exit_date": "2025-07-31",
+      "entry_price": 11080.0,
+      "exit_price": 11130.0,
+      "pnl_%": 0.45,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-08-20",
+      "exit_date": "2025-08-21",
+      "entry_price": 11220.0,
+      "exit_price": 11760.0,
+      "pnl_%": 4.81,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-09-09",
+      "exit_date": "2025-09-16",
+      "entry_price": 11170.0,
+      "exit_price": 13400.0,
+      "pnl_%": 19.96,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-09-17",
+      "exit_date": "2025-09-18",
+      "entry_price": 13930.0,
+      "exit_price": 13790.0,
+      "pnl_%": -1.01,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-09-23",
+      "exit_date": "2025-11-10",
+      "entry_price": 13060.0,
+      "exit_price": 11600.0,
+      "pnl_%": -11.18,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2025-12-03",
+      "exit_date": "2026-01-16",
+      "entry_price": 12610.0,
+      "exit_price": 14040.0,
+      "pnl_%": 11.34,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2026-01-19",
+      "exit_date": "2026-01-26",
+      "entry_price": 13260.0,
+      "exit_price": 11760.0,
+      "pnl_%": -11.31,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2026-05-07",
+      "exit_date": "2026-06-22",
+      "entry_price": 11290.0,
+      "exit_price": 11990.0,
+      "pnl_%": 6.2,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2026-06-23",
+      "exit_date": "2026-06-24",
+      "entry_price": 11990.0,
+      "exit_price": 12220.0,
+      "pnl_%": 1.92,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2026-06-25",
+      "exit_date": "2026-06-26",
+      "entry_price": 12760.0,
+      "exit_price": 12960.0,
+      "pnl_%": 1.57,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2026-06-29",
+      "exit_date": "2026-06-30",
+      "entry_price": 12640.0,
+      "exit_price": 12840.0,
+      "pnl_%": 1.58,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2026-07-01",
+      "exit_date": "2026-07-02",
+      "entry_price": 12800.0,
+      "exit_price": 12800.0,
+      "pnl_%": 0.0,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "KLB",
+      "entry_date": "2026-07-06",
+      "exit_date": "2026-07-22",
+      "entry_price": 12300.0,
+      "exit_price": 11300.0,
+      "pnl_%": -8.13,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "AG1",
+      "entry_date": "2025-03-31",
+      "exit_date": "2025-04-03",
+      "entry_price": 11440.0,
+      "exit_price": 10480.0,
+      "pnl_%": -8.39,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "AG1",
+      "entry_date": "2025-06-03",
+      "exit_date": "2025-06-04",
+      "entry_price": 12980.0,
+      "exit_price": 11730.0,
+      "pnl_%": -9.63,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "AG1",
+      "entry_date": "2025-08-07",
+      "exit_date": "2025-09-23",
+      "entry_price": 10930.0,
+      "exit_price": 9960.0,
+      "pnl_%": -8.87,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "AG1",
+      "entry_date": "2026-01-29",
+      "exit_date": "2026-02-27",
+      "entry_price": 11730.0,
+      "exit_price": 10930.0,
+      "pnl_%": -6.82,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "AG1",
+      "entry_date": "2026-03-19",
+      "exit_date": "2026-06-18",
+      "entry_price": 11380.0,
+      "exit_price": 12300.0,
+      "pnl_%": 8.08,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "AG1",
+      "entry_date": "2026-08-21",
+      "exit_date": "2026-08-24",
+      "entry_price": 12300.0,
+      "exit_price": 12600.0,
+      "pnl_%": 2.44,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "AG1",
+      "entry_date": "2026-08-25",
+      "exit_date": "2026-09-10",
+      "entry_price": 12100.0,
+      "exit_price": 11100.0,
+      "pnl_%": -8.26,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "SJM",
+      "entry_date": "2025-04-24",
+      "exit_date": "2025-04-25",
+      "entry_price": 7200.0,
+      "exit_price": 6000.0,
+      "pnl_%": -16.67,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "SJM",
+      "entry_date": "2025-07-17",
+      "exit_date": "2025-07-30",
+      "entry_price": 8100.0,
+      "exit_price": 6400.0,
+      "pnl_%": -20.99,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "SJM",
+      "entry_date": "2025-12-09",
+      "exit_date": "2025-12-10",
+      "entry_price": 7800.0,
+      "exit_price": 7900.0,
+      "pnl_%": 1.28,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "SJM",
+      "entry_date": "2025-12-11",
+      "exit_date": "2026-02-05",
+      "entry_price": 7500.0,
+      "exit_price": 9400.0,
+      "pnl_%": 25.33,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2025-06-16",
+      "exit_date": "2025-07-07",
+      "entry_price": 18470.0,
+      "exit_price": 18960.0,
+      "pnl_%": 2.65,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2025-07-08",
+      "exit_date": "2025-07-09",
+      "entry_price": 19260.0,
+      "exit_price": 19700.0,
+      "pnl_%": 2.28,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2025-07-14",
+      "exit_date": "2025-07-15",
+      "entry_price": 20630.0,
+      "exit_price": 20390.0,
+      "pnl_%": -1.16,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2025-07-21",
+      "exit_date": "2025-07-22",
+      "entry_price": 21910.0,
+      "exit_price": 22110.0,
+      "pnl_%": 0.91,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2025-07-23",
+      "exit_date": "2025-07-24",
+      "entry_price": 22940.0,
+      "exit_price": 23090.0,
+      "pnl_%": 0.65,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2025-07-29",
+      "exit_date": "2025-07-30",
+      "entry_price": 23190.0,
+      "exit_price": 24810.0,
+      "pnl_%": 6.99,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2025-10-14",
+      "exit_date": "2025-10-20",
+      "entry_price": 31930.0,
+      "exit_price": 29230.0,
+      "pnl_%": -8.46,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2026-01-13",
+      "exit_date": "2026-01-26",
+      "entry_price": 29970.0,
+      "exit_price": 27270.0,
+      "pnl_%": -9.01,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "VPB",
+      "entry_date": "2026-05-05",
+      "exit_date": "2026-06-08",
+      "entry_price": 27510.0,
+      "exit_price": 25600.0,
+      "pnl_%": -6.94,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-03-20",
+      "exit_date": "2025-04-08",
+      "entry_price": 6260.0,
+      "exit_price": 5380.0,
+      "pnl_%": -14.06,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-05-26",
+      "exit_date": "2025-07-09",
+      "entry_price": 6100.0,
+      "exit_price": 7050.0,
+      "pnl_%": 15.57,
+      "result": "WIN",
+      "exit_reason": "Take-profit"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-07-23",
+      "exit_date": "2025-07-24",
+      "entry_price": 7840.0,
+      "exit_price": 7920.0,
+      "pnl_%": 1.02,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-07-25",
+      "exit_date": "2025-07-28",
+      "entry_price": 8080.0,
+      "exit_price": 9030.0,
+      "pnl_%": 11.76,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-07-29",
+      "exit_date": "2025-07-30",
+      "entry_price": 8550.0,
+      "exit_price": 9500.0,
+      "pnl_%": 11.11,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-07-31",
+      "exit_date": "2025-08-01",
+      "entry_price": 10380.0,
+      "exit_price": 10300.0,
+      "pnl_%": -0.77,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-08-05",
+      "exit_date": "2025-08-06",
+      "entry_price": 10060.0,
+      "exit_price": 10140.0,
+      "pnl_%": 0.8,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-08-20",
+      "exit_date": "2025-08-21",
+      "entry_price": 10690.0,
+      "exit_price": 11010.0,
+      "pnl_%": 2.99,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-10-14",
+      "exit_date": "2025-11-17",
+      "entry_price": 10060.0,
+      "exit_price": 11720.0,
+      "pnl_%": 16.5,
+      "result": "WIN",
+      "exit_reason": "Take-profit"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-12-03",
+      "exit_date": "2025-12-10",
+      "entry_price": 12120.0,
+      "exit_price": 12430.0,
+      "pnl_%": 2.56,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2025-12-12",
+      "exit_date": "2026-01-14",
+      "entry_price": 12200.0,
+      "exit_price": 13370.0,
+      "pnl_%": 9.59,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-03-31",
+      "exit_date": "2026-05-27",
+      "entry_price": 12850.0,
+      "exit_price": 13550.0,
+      "pnl_%": 5.45,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-06-02",
+      "exit_date": "2026-06-03",
+      "entry_price": 13720.0,
+      "exit_price": 13810.0,
+      "pnl_%": 0.66,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-06-04",
+      "exit_date": "2026-06-05",
+      "entry_price": 13900.0,
+      "exit_price": 13810.0,
+      "pnl_%": -0.65,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-06-09",
+      "exit_date": "2026-06-10",
+      "entry_price": 13980.0,
+      "exit_price": 14680.0,
+      "pnl_%": 5.01,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-06-11",
+      "exit_date": "2026-06-12",
+      "entry_price": 14680.0,
+      "exit_price": 14500.0,
+      "pnl_%": -1.23,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-06-17",
+      "exit_date": "2026-06-18",
+      "entry_price": 14680.0,
+      "exit_price": 14940.0,
+      "pnl_%": 1.77,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-06-19",
+      "exit_date": "2026-06-22",
+      "entry_price": 15110.0,
+      "exit_price": 14940.0,
+      "pnl_%": -1.13,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-06-23",
+      "exit_date": "2026-06-24",
+      "entry_price": 15200.0,
+      "exit_price": 15540.0,
+      "pnl_%": 2.24,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-07-08",
+      "exit_date": "2026-07-09",
+      "entry_price": 16500.0,
+      "exit_price": 17200.0,
+      "pnl_%": 4.24,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "ABB",
+      "entry_date": "2026-07-22",
+      "exit_date": "2026-09-18",
+      "entry_price": 16900.0,
+      "exit_price": 17900.0,
+      "pnl_%": 5.92,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2025-06-20",
+      "exit_date": "2025-06-23",
+      "entry_price": 27910.0,
+      "exit_price": 27950.0,
+      "pnl_%": 0.14,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2025-07-14",
+      "exit_date": "2025-07-15",
+      "entry_price": 29940.0,
+      "exit_price": 29840.0,
+      "pnl_%": -0.33,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2025-07-28",
+      "exit_date": "2025-07-29",
+      "entry_price": 30820.0,
+      "exit_price": 29600.0,
+      "pnl_%": -3.96,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2025-07-30",
+      "exit_date": "2025-08-13",
+      "entry_price": 31220.0,
+      "exit_price": 33520.0,
+      "pnl_%": 7.37,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2025-08-14",
+      "exit_date": "2025-08-21",
+      "entry_price": 33930.0,
+      "exit_price": 35010.0,
+      "pnl_%": 3.18,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2025-08-22",
+      "exit_date": "2025-10-13",
+      "entry_price": 34400.0,
+      "exit_price": 37850.0,
+      "pnl_%": 10.03,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2025-10-14",
+      "exit_date": "2025-10-20",
+      "entry_price": 37030.0,
+      "exit_price": 33290.0,
+      "pnl_%": -10.1,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2025-12-16",
+      "exit_date": "2026-01-07",
+      "entry_price": 34720.0,
+      "exit_price": 36880.0,
+      "pnl_%": 6.22,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2026-01-08",
+      "exit_date": "2026-01-09",
+      "entry_price": 37620.0,
+      "exit_price": 40130.0,
+      "pnl_%": 6.67,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2026-01-12",
+      "exit_date": "2026-01-13",
+      "entry_price": 40870.0,
+      "exit_price": 40670.0,
+      "pnl_%": -0.49,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2026-01-14",
+      "exit_date": "2026-01-26",
+      "entry_price": 40820.0,
+      "exit_price": 37620.0,
+      "pnl_%": -7.84,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CTG",
+      "entry_date": "2026-05-18",
+      "exit_date": "2026-06-01",
+      "entry_price": 35750.0,
+      "exit_price": 34030.0,
+      "pnl_%": -4.81,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2025-03-25",
+      "exit_date": "2025-03-28",
+      "entry_price": 37430.0,
+      "exit_price": 35720.0,
+      "pnl_%": -4.57,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2025-05-12",
+      "exit_date": "2025-05-28",
+      "entry_price": 39210.0,
+      "exit_price": 41560.0,
+      "pnl_%": 5.99,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2025-05-30",
+      "exit_date": "2025-06-06",
+      "entry_price": 43270.0,
+      "exit_price": 44480.0,
+      "pnl_%": 2.8,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2025-07-16",
+      "exit_date": "2025-08-07",
+      "entry_price": 44190.0,
+      "exit_price": 46400.0,
+      "pnl_%": 5.0,
+      "result": "WIN",
+      "exit_reason": "Take-profit"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2025-08-08",
+      "exit_date": "2025-08-15",
+      "entry_price": 46190.0,
+      "exit_price": 48750.0,
+      "pnl_%": 5.54,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2025-08-21",
+      "exit_date": "2025-08-22",
+      "entry_price": 51520.0,
+      "exit_price": 52240.0,
+      "pnl_%": 1.4,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2025-08-25",
+      "exit_date": "2025-09-03",
+      "entry_price": 50530.0,
+      "exit_price": 47820.0,
+      "pnl_%": -5.36,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2025-09-04",
+      "exit_date": "2025-09-17",
+      "entry_price": 48180.0,
+      "exit_price": 45390.0,
+      "pnl_%": -5.79,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-01-15",
+      "exit_date": "2026-01-16",
+      "entry_price": 41180.0,
+      "exit_price": 41270.0,
+      "pnl_%": 0.22,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-01-21",
+      "exit_date": "2026-02-03",
+      "entry_price": 41270.0,
+      "exit_price": 42920.0,
+      "pnl_%": 4.0,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-02-04",
+      "exit_date": "2026-02-05",
+      "entry_price": 44480.0,
+      "exit_price": 44400.0,
+      "pnl_%": -0.18,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-02-27",
+      "exit_date": "2026-03-05",
+      "entry_price": 43580.0,
+      "exit_price": 45480.0,
+      "pnl_%": 4.36,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-03-10",
+      "exit_date": "2026-03-25",
+      "entry_price": 43500.0,
+      "exit_price": 50100.0,
+      "pnl_%": 15.17,
+      "result": "WIN",
+      "exit_reason": "Take-profit"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-03-26",
+      "exit_date": "2026-03-27",
+      "entry_price": 53650.0,
+      "exit_price": 53810.0,
+      "pnl_%": 0.3,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-03-30",
+      "exit_date": "2026-03-31",
+      "entry_price": 53400.0,
+      "exit_price": 52570.0,
+      "pnl_%": -1.55,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-04-02",
+      "exit_date": "2026-04-28",
+      "entry_price": 52820.0,
+      "exit_price": 55050.0,
+      "pnl_%": 4.22,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-05-26",
+      "exit_date": "2026-06-01",
+      "entry_price": 55300.0,
+      "exit_price": 53810.0,
+      "pnl_%": -2.69,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-06-02",
+      "exit_date": "2026-07-10",
+      "entry_price": 54220.0,
+      "exit_price": 52900.0,
+      "pnl_%": -2.43,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-07-24",
+      "exit_date": "2026-08-10",
+      "entry_price": 53980.0,
+      "exit_price": 56620.0,
+      "pnl_%": 4.89,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-08-11",
+      "exit_date": "2026-08-12",
+      "entry_price": 56620.0,
+      "exit_price": 56860.0,
+      "pnl_%": 0.42,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-08-19",
+      "exit_date": "2026-08-20",
+      "entry_price": 57200.0,
+      "exit_price": 58100.0,
+      "pnl_%": 1.57,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-08-24",
+      "exit_date": "2026-08-25",
+      "entry_price": 59510.0,
+      "exit_price": 59180.0,
+      "pnl_%": -0.55,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "CKA",
+      "entry_date": "2026-08-26",
+      "exit_date": "2026-09-18",
+      "entry_price": 56700.0,
+      "exit_price": 53000.0,
+      "pnl_%": -6.53,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "A32",
+      "entry_date": "2025-05-07",
+      "exit_date": "2025-06-05",
+      "entry_price": 35220.0,
+      "exit_price": 31450.0,
+      "pnl_%": -10.7,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-04-03",
+      "exit_date": "2025-04-10",
+      "entry_price": 17100.0,
+      "exit_price": 19600.0,
+      "pnl_%": 14.62,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-04-11",
+      "exit_date": "2025-04-14",
+      "entry_price": 21600.0,
+      "exit_price": 24800.0,
+      "pnl_%": 14.81,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-04-16",
+      "exit_date": "2025-04-17",
+      "entry_price": 26000.0,
+      "exit_price": 27000.0,
+      "pnl_%": 3.85,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-04-18",
+      "exit_date": "2025-04-21",
+      "entry_price": 29800.0,
+      "exit_price": 29900.0,
+      "pnl_%": 0.34,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-04-22",
+      "exit_date": "2025-04-23",
+      "entry_price": 29900.0,
+      "exit_price": 33900.0,
+      "pnl_%": 13.38,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-04-24",
+      "exit_date": "2025-04-25",
+      "entry_price": 36000.0,
+      "exit_price": 35200.0,
+      "pnl_%": -2.22,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-04-28",
+      "exit_date": "2025-04-29",
+      "entry_price": 35100.0,
+      "exit_price": 35500.0,
+      "pnl_%": 1.14,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-06-18",
+      "exit_date": "2025-06-19",
+      "entry_price": 43500.0,
+      "exit_price": 43800.0,
+      "pnl_%": 0.69,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-06-26",
+      "exit_date": "2025-06-27",
+      "entry_price": 49700.0,
+      "exit_price": 50000.0,
+      "pnl_%": 0.6,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-07-01",
+      "exit_date": "2025-07-02",
+      "entry_price": 52500.0,
+      "exit_price": 53500.0,
+      "pnl_%": 1.9,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-08-01",
+      "exit_date": "2025-10-14",
+      "entry_price": 52000.0,
+      "exit_price": 54400.0,
+      "pnl_%": 4.62,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-10-23",
+      "exit_date": "2025-10-27",
+      "entry_price": 59000.0,
+      "exit_price": 55000.0,
+      "pnl_%": -6.78,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2025-12-03",
+      "exit_date": "2025-12-10",
+      "entry_price": 54700.0,
+      "exit_price": 50700.0,
+      "pnl_%": -7.31,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2026-01-06",
+      "exit_date": "2026-01-23",
+      "entry_price": 54000.0,
+      "exit_price": 67000.0,
+      "pnl_%": 24.07,
+      "result": "WIN",
+      "exit_reason": "Take-profit"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2026-01-26",
+      "exit_date": "2026-01-27",
+      "entry_price": 68000.0,
+      "exit_price": 78600.0,
+      "pnl_%": 15.59,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2026-01-29",
+      "exit_date": "2026-01-30",
+      "entry_price": 99500.0,
+      "exit_price": 109700.0,
+      "pnl_%": 10.25,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2026-02-27",
+      "exit_date": "2026-03-02",
+      "entry_price": 120100.0,
+      "exit_price": 124900.0,
+      "pnl_%": 4.0,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2026-03-06",
+      "exit_date": "2026-03-09",
+      "entry_price": 147900.0,
+      "exit_price": 123400.0,
+      "pnl_%": -16.57,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2026-03-31",
+      "exit_date": "2026-04-01",
+      "entry_price": 147200.0,
+      "exit_price": 165000.0,
+      "pnl_%": 12.09,
+      "result": "WIN",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2026-04-02",
+      "exit_date": "2026-04-03",
+      "entry_price": 169500.0,
+      "exit_price": 166000.0,
+      "pnl_%": -2.06,
+      "result": "LOSS",
+      "exit_reason": "RSI overbought"
+    },
+    {
+      "ticker": "TIN",
+      "entry_date": "2026-04-21",
+      "exit_date": "2026-05-07",
+      "entry_price": 164000.0,
+      "exit_price": 141900.0,
+      "pnl_%": -13.48,
+      "result": "LOSS",
+      "exit_reason": "Stop-loss"
+    }
+  ]
+}

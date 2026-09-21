@@ -1,0 +1,137 @@
+[
+  {
+    "ticker": "SSI",
+    "entry_price": 21.4,
+    "entry_date": "2026-09-20",
+    "stop_loss": 20.258590715350664,
+    "take_profit": 23.682818569298668,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "SSI",
+    "entry_price": 21.4,
+    "entry_date": "2026-09-20",
+    "stop_loss": 20.258590715350664,
+    "take_profit": 23.682818569298668,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "KLB",
+    "entry_price": 12.8,
+    "entry_date": "2026-09-20",
+    "stop_loss": 12.052932390037634,
+    "take_profit": 14.294135219924733,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "ABB",
+    "entry_price": 17.9,
+    "entry_date": "2026-09-20",
+    "stop_loss": 17.411119220777966,
+    "take_profit": 18.877761558444064,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "VPL",
+    "entry_price": 81.2,
+    "entry_date": "2026-09-20",
+    "stop_loss": 75.36628290487677,
+    "take_profit": 92.86743419024647,
+    "rr_ratio": 2.0,
+    "status": "OPEN"
+  },
+  {
+    "ticker": "SSI",
+    "entry_price": 21.4,
+    "entry_date": "2026-09-20",
+    "stop_loss": 20.258590715350664,
+    "take_profit": 23.682818569298668,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "KLB",
+    "entry_price": 12.8,
+    "entry_date": "2026-09-18",
+    "stop_loss": 12.052932390037634,
+    "take_profit": 14.294135219924733,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "ABB",
+    "entry_price": 17.9,
+    "entry_date": "2026-09-18",
+    "stop_loss": 17.411119220777966,
+    "take_profit": 18.877761558444064,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "SSI",
+    "entry_price": 21.4,
+    "entry_date": "2026-09-18",
+    "stop_loss": 20.258590715350664,
+    "take_profit": 23.682818569298668,
+    "rr_ratio": 2.0,
+    "status": "OPEN"
+  },
+  {
+    "ticker": "KLB",
+    "entry_price": 12.8,
+    "entry_date": "2026-09-18",
+    "stop_loss": 12.052932390037634,
+    "take_profit": 14.294135219924733,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "ABB",
+    "entry_price": 17.9,
+    "entry_date": "2026-09-18",
+    "stop_loss": 17.411119220777966,
+    "take_profit": 18.877761558444064,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "KLB",
+    "entry_price": 12.8,
+    "entry_date": "2026-09-18",
+    "stop_loss": 12.052932390037634,
+    "take_profit": 14.294135219924733,
+    "rr_ratio": 2.0,
+    "status": "OPEN"
+  },
+  {
+    "ticker": "ABB",
+    "entry_price": 17.9,
+    "entry_date": "2026-09-18",
+    "stop_loss": 17.411119220777966,
+    "take_profit": 18.877761558444064,
+    "rr_ratio": 2.0,
+    "status": "OPEN"
+  },
+  {
+    "ticker": "VPB",
+    "entry_price": 28450.0,
+    "entry_date": "2026-09-21",
+    "stop_loss": 24388.338706320206,
+    "take_profit": 36573.32258735959,
+    "rr_ratio": 2.0,
+    "status": "CLOSED"
+  },
+  {
+    "ticker": "VPB",
+    "entry_price": 28.45,
+    "entry_date": "2026-09-21",
+    "stop_loss": 27.01013489163313,
+    "take_profit": 31.32973021673374,
+    "rr_ratio": 2.0,
+    "status": "OPEN"
+  }
+]

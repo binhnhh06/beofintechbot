@@ -1,0 +1,18 @@
+[
+  {
+    "ticker": "ABB",
+    "signal_type": "SELL",
+    "price": 17.9,
+    "date": "2026-09-21",
+    "strategy_name": "CANSLIM + Momentum",
+    "rs_score": 0,
+    "ta_criteria": {
+      "EMA20": 17.33,
+      "EMA50": 16.86,
+      "RSI_14": 71.67,
+      "volume_ratio": 0.71
+    },
+    "stop_loss": 16.83,
+    "take_profit": 20.05
+  }
+]
