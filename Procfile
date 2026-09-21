@@ -1,3 +1,1 @@
-git add .
-git commit -m "add requirements and Procfile"
-git push
+worker: python main.py
