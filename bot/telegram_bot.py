@@ -1,5 +1,5 @@
 import asyncio
-from datetime import date, datetime
+from datetime import datetime, timedelta, timezone
 import io
 import json
 import os
@@ -22,6 +22,46 @@ from config import (
 )
 
 SSI_HEADERS = {"Accept": "application/json", "User-Agent": "Mozilla/5.0"}
+
+# Múi giờ Việt Nam (UTC+7)
+VN_TZ = timezone(timedelta(hours=7))
+
+# Bảng tra cứu nhóm ngành dự phòng trên Railway
+SECTOR_MAP = {
+    # Ngân hàng
+    "VPB": ("Ngân hàng TMCP Việt Nam Thịnh Vượng", "Ngân hàng"),
+    "STB": ("Ngân hàng TMCP Sài Gòn Thương Tín", "Ngân hàng"),
+    "ACB": ("Ngân hàng TMCP Á Châu", "Ngân hàng"),
+    "TCB": ("Ngân hàng TMCP Kỹ thương Việt Nam", "Ngân hàng"),
+    "MBB": ("Ngân hàng TMCP Quân Đội", "Ngân hàng"),
+    "VCB": ("Ngân hàng TMCP Ngoại thương Việt Nam", "Ngân hàng"),
+    "BID": ("Ngân hàng TMCP Đầu tư và Phát triển VN", "Ngân hàng"),
+    "CTG": ("Ngân hàng TMCP Công Thương Việt Nam", "Ngân hàng"),
+    "ABB": ("Ngân hàng TMCP An Bình", "Ngân hàng"),
+    # Bất động sản
+    "VHM": ("CTCP Vinhomes", "Bất động sản"),
+    "NVL": ("CTCP Tập đoàn Đầu tư Địa ốc No Va", "Bất động sản"),
+    "PDR": ("CTCP Phát triển Bất động sản Phát Đạt", "Bất động sản"),
+    "DXG": ("CTCP Tập đoàn Đất Xanh", "Bất động sản"),
+    "DIG": ("Tổng Cty CP Đầu tư Phát triển Xây dựng", "Bất động sản"),
+    # Thép / Vật liệu
+    "HPG": ("CTCP Tập đoàn Hòa Phát", "Thép & Vật liệu"),
+    "HSG": ("CTCP Tập đoàn Hoa Sen", "Thép & Vật liệu"),
+    "NKG": ("CTCP Thép Nam Kim", "Thép & Vật liệu"),
+    # Chứng khoán
+    "SSI": ("CTCP Chứng khoán SSI", "Dịch vụ tài chính"),
+    "VND": ("CTCP Chứng khoán VNDIRECT", "Dịch vụ tài chính"),
+    "VCI": ("CTCP Chứng khoán Vietcap", "Dịch vụ tài chính"),
+    "HCM": ("CTCP Chứng khoán TP.HCM", "Dịch vụ tài chính"),
+    # Công nghệ / Bán lẻ
+    "FPT": ("CTCP FPT", "Công nghệ thông tin"),
+    "MWG": ("CTCP Đầu tư Thế Giới Di Động", "Bán lẻ"),
+    "FRT": ("CTCP Bán lẻ Kỹ thuật số FPT", "Bán lẻ"),
+    # Dầu khí / Vận tải
+    "PVP": ("CTCP Vận tải Dầu khí Thái Bình Dương", "Vận tải / Dầu khí"),
+    "PVD": ("TCT CP Khoan và Dịch vụ Khoan Dầu khí", "Dầu khí"),
+    "PVS": ("TCT CP Dịch vụ Kỹ thuật Dầu khí VN", "Dầu khí"),
+}
 
 
 # ==========================================
@@ -84,20 +124,49 @@ def eval_volume(vol, vol_ratio):
 
 
 # ==========================================
-# CÁC HÀM TRUY XUẤT DỮ LIỆU & QUẢN LÝ VỊ THẾ
+# TRUY XUẤT DỮ LIỆU & CÔNG CỤ DỰ PHÒNG
 # ==========================================
-def get_company_info(ticker):
+def get_fa_data(ticker):
     try:
-        url = f"https://iboard-api.ssi.com.vn/statistics/company/ssmi/company-profile?symbol={ticker}&language=vn"
-        r = requests.get(url, headers=SSI_HEADERS, timeout=5)
-        data = r.json().get("data", {})
-        return {
-            "name": data.get("companyName", ticker),
-            "exchange": data.get("exchange", "HOSE"),
-            "sector": data.get("sector", "Ngân hàng/Tài chính"),
-        }
+        with open("data/watch_list.json", "r", encoding="utf-8") as f:
+            watch = json.load(f)
+        for item in watch:
+            if item["ticker"] == ticker:
+                return item
+        return None
     except:
-        return {"name": ticker, "exchange": "HOSE", "sector": "Chưa xác định"}
+        return None
+
+
+def get_company_info(ticker):
+    ticker_str = ticker.upper()
+    fa = get_fa_data(ticker_str)
+    if fa and fa.get("sector"):
+        return {
+            "name": fa.get("name", ticker_str),
+            "exchange": fa.get("exchange", "HOSE"),
+            "sector": fa.get("sector"),
+        }
+
+    try:
+        url = f"https://iboard-api.ssi.com.vn/statistics/company/ssmi/company-profile?symbol={ticker_str}&language=vn"
+        r = requests.get(url, headers=SSI_HEADERS, timeout=3)
+        if r.status_code == 200:
+            data = r.json().get("data", {})
+            if data and data.get("sector"):
+                return {
+                    "name": data.get("companyName", ticker_str),
+                    "exchange": data.get("exchange", "HOSE"),
+                    "sector": data.get("sector"),
+                }
+    except:
+        pass
+
+    if ticker_str in SECTOR_MAP:
+        name, sector = SECTOR_MAP[ticker_str]
+        return {"name": name, "exchange": "HOSE/HNX", "sector": sector}
+
+    return {"name": ticker_str, "exchange": "HOSE", "sector": "Chưa xác định"}
 
 
 def get_last_trading_date(ticker):
@@ -110,7 +179,7 @@ def get_last_trading_date(ticker):
         conn.close()
         return df["date"].iloc[0]
     except:
-        return str(date.today())
+        return datetime.now(VN_TZ).strftime("%Y-%m-%d")
 
 
 def load_trade_history():
@@ -132,26 +201,6 @@ def get_active_trade(ticker):
         if t["ticker"] == ticker and t["status"] == "OPEN":
             return t
     return None
-
-
-def open_trade(ticker, price, stop_loss, take_profit, rr_ratio):
-    history = load_trade_history()
-    entry_date = get_last_trading_date(ticker)
-    for t in history:
-        if t["ticker"] == ticker and t["status"] == "OPEN":
-            t["status"] = "CLOSED"
-    history.append(
-        {
-            "ticker": ticker,
-            "entry_price": price,
-            "entry_date": entry_date,
-            "stop_loss": stop_loss,
-            "take_profit": take_profit,
-            "rr_ratio": rr_ratio,
-            "status": "OPEN",
-        }
-    )
-    save_trade_history(history)
 
 
 def calc_trade_stats(trade, current_price):
@@ -190,18 +239,6 @@ def calc_smartscore(ticker, df, fa_data=None):
     return dinh_gia, chat_luong, dong_luong, tong
 
 
-def get_fa_data(ticker):
-    try:
-        with open("data/watch_list.json", "r", encoding="utf-8") as f:
-            watch = json.load(f)
-        for item in watch:
-            if item["ticker"] == ticker:
-                return item
-        return None
-    except:
-        return None
-
-
 # ==========================================
 # HÀM VẼ BIỂU ĐỒ KỸ THUẬT DARK MODE
 # ==========================================
@@ -238,7 +275,7 @@ def generate_stock_chart(df, symbol):
 
 
 # ==========================================
-# HÀM TẠO TIN NHẮN TỔNG HỢP CẢ CỦA CŨ VÀ MỚI
+# HÀM TẠO TIN NHẮN TỔNG HỢP CẢ CỦA CỦA CŨ VÀ MỚI
 # ==========================================
 def get_signal_for_ticker(ticker):
     try:
@@ -250,16 +287,14 @@ def get_signal_for_ticker(ticker):
         if len(df) < 50:
             return None, None, "Không đủ dữ liệu lịch sử"
 
-        # Tính toán Kỹ thuật (TA)
+        # Tính toán Kỹ thuật
         df["price"] = df["close"]
         df["EMA20"] = ta.trend.ema_indicator(df["price"], window=20)
         df["EMA50"] = ta.trend.ema_indicator(df["price"], window=50)
-        df["MA50"] = df["price"].rolling(50).mean()
         df["RSI_14"] = ta.momentum.rsi(df["price"], window=14)
         df["ATR_14"] = ta.volatility.average_true_range(df["high"], df["low"], df["price"], window=14)
         df["volume_MA20"] = df["volume"].rolling(20).mean()
         df["volume_ratio"] = df["volume"] / df["volume_MA20"]
-        df["resist_20"] = df["high"].rolling(20).max().shift(1)
         df = df.dropna()
 
         latest = df.iloc[-1]
@@ -268,7 +303,7 @@ def get_signal_for_ticker(ticker):
         fa_data = get_fa_data(ticker)
         comp_info = get_company_info(ticker)
 
-        # 1. Tính toán SMARTTRADE
+        # 1. SMARTTRADE
         active_trade = get_active_trade(ticker)
         if active_trade:
             position = "MUA (ĐANG NẮM GIỮ)" if active_trade.get("type") == "BUY" else "BÁN"
@@ -284,10 +319,10 @@ def get_signal_for_ticker(ticker):
 
         pnl_emoji = "🟢" if pnl >= 0 else "🔴"
 
-        # 2. Tính toán SMARTSCORE
+        # 2. SMARTSCORE
         dinh_gia, chat_luong, dong_luong, smart_score = calc_smartscore(ticker, df, fa_data)
 
-        # 3. Lấy dữ liệu FA
+        # 3. Chỉ số FA
         roe_val = float(fa_data.get("ROE", 18.71)) if fa_data else 18.71
         lnst_val = float(fa_data.get("LNST", 2567.6)) if fa_data else 2567.6
         eps_growth = float(fa_data.get("EPS_growth_yoy", 15.0)) if fa_data else 15.0
@@ -302,11 +337,11 @@ def get_signal_for_ticker(ticker):
         else:
             ai_rec = "CẦN THEO DÕI! Giá đang tích lũy quanh nền, chờ tín hiệu xác nhận."
 
-        # Biểu đồ
         chart_buffer = generate_stock_chart(df, ticker.upper())
 
-        # GỘP KHUNG THÔNG TIN CỦ & MỚI
-        now_str = datetime.now().strftime("%H:%M:%S - %d/%m/%Y")
+        # Múi giờ Việt Nam
+        now_str = datetime.now(VN_TZ).strftime("%H:%M:%S - %d/%m/%Y")
+
         msg = f"""📊 **{ticker.upper()} - {comp_info['name']} ({comp_info['exchange']})**
 ⏱ {now_str}
 
@@ -440,7 +475,8 @@ def start_bot_polling():
     print("🤖 Bot đang lắng nghe lệnh...")
     app.run_polling()
 
-# Gán alias để main.py import được cả 2 tên hàm
+
+# Đồng bộ tên hàm cho main.py import
 run_bot = start_bot_polling
 
 if __name__ == "__main__":
