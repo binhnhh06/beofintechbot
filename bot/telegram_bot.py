@@ -193,11 +193,28 @@ def get_company_info(ticker):
 
 
 def fetch_stock_data(ticker):
-    """Lấy dữ liệu giá realtime từ vnstock và tự động ghép giá mới nhất hôm nay từ TCBS"""
+    """Lấy dữ liệu nến realtime chuẩn 100% bao gồm cả phiên HÔM NAY"""
     ticker_str = ticker.upper()
     df = None
 
-    # 1. Lấy dữ liệu lịch sử nến từ vnstock API Key
+    # 1. NGUỒN 1: API Nến TCBS (Cập nhật realtime ngay trong phiên hôm nay)
+    try:
+        tcbs_bars_url = f"https://apipubks.tcbs.com.vn/stock-insight/v1/stock/bars-long-term?ticker={ticker_str}&type=stock&resolution=D"
+        r = requests.get(
+            tcbs_bars_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=4
+        )
+        if r.status_code == 200:
+            raw_data = r.json().get("data", [])
+            if raw_data:
+                df = pd.DataFrame(raw_data)
+                df = df.rename(columns={"tradingDate": "date"})
+                df["date"] = df["date"].astype(str).str[:10]
+                df = df.tail(180).copy().reset_index(drop=True)
+                return df
+    except Exception:
+        pass
+
+    # 2. NGUỒN 2: Dùng vnstock với API Key
     try:
         from vnstock import Vnstock
 
@@ -228,7 +245,7 @@ def fetch_stock_data(ticker):
     except Exception:
         pass
 
-    # Dự phòng từ SQLite nếu lỗi vnstock
+    # 3. NGUỒN 3: Dự phòng SQLite
     if df is None or df.empty:
         try:
             conn = sqlite3.connect("data/market_data.db")
@@ -241,36 +258,35 @@ def fetch_stock_data(ticker):
     if df is None or df.empty:
         return None
 
-    # 2. KIỂM TRA & CẬP NHẬT GIÁ REALTIME HÔM NAY TỪ TCBS (NẾU THIẾU NGÀY HÔM NAY)
+    # 4. GHÉP GIÁ HÔM NAY TỪ VNDIRECT SNAPSHOT (Nếu nguồn 2/3 chưa đóng nến hôm nay)
     today_str = datetime.now(VN_TZ).strftime("%Y-%m-%d")
     last_date = str(df.iloc[-1]["date"])[:10]
 
     if last_date < today_str:
         try:
-            # Gọi API Overview của TCBS để lấy giá khớp và khối lượng mới nhất hôm nay
-            tcbs_url = f"https://apipubks.tcbs.com.vn/stock-insight/v1/comp/{ticker_str}/overview"
-            r = requests.get(tcbs_url, timeout=3)
-            if r.status_code == 200:
-                data = r.json()
-                price = data.get("price") or data.get("closePrice")
-                volume = data.get("volume") or data.get("totalVolume") or 0
-
-                if price and price > 0:
-                    # Chuẩn hóa giá về nghìn đồng nếu TCBS trả về đồng
-                    price_val = price / 1000.0 if price > 1000 else price
-                    new_row = pd.DataFrame(
-                        [
-                            {
-                                "date": today_str,
-                                "open": price_val,
-                                "high": price_val,
-                                "low": price_val,
-                                "close": price_val,
-                                "volume": volume,
-                            }
-                        ]
-                    )
-                    df = pd.concat([df, new_row], ignore_index=True)
+            vnd_url = f"https://price-aggr.vndirect.com.vn/realtime/snapshot?select=code,matchedPrice,nmTotalTradedQty&codes={ticker_str}"
+            r_vnd = requests.get(
+                vnd_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=3
+            )
+            if r_vnd.status_code == 200:
+                data = r_vnd.json()
+                if data and isinstance(data, list) and len(data) > 0:
+                    matched_price = data[0].get("matchedPrice")
+                    vol = data[0].get("nmTotalTradedQty", 0)
+                    if matched_price and matched_price > 0:
+                        new_row = pd.DataFrame(
+                            [
+                                {
+                                    "date": today_str,
+                                    "open": matched_price,
+                                    "high": matched_price,
+                                    "low": matched_price,
+                                    "close": matched_price,
+                                    "volume": vol,
+                                }
+                            ]
+                        )
+                        df = pd.concat([df, new_row], ignore_index=True)
         except Exception:
             pass
 
