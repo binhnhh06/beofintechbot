@@ -21,11 +21,29 @@ from config import (
     TELEGRAM_TOKEN,
 )
 
-SSI_HEADERS = {"Accept": "application/json", "User-Agent": "Mozilla/5.0"}
-VN_TZ = timezone(timedelta(hours=7))
+# Nạp API Key vnstock và múi giờ Việt Nam (UTC+7)
+VNSTOCK_KEY = os.getenv("VNSTOCK_API_KEY", "vnstock_80c9c49d5aa8e6c394a8d502fad4e9bc")
+os.environ["VNSTOCK_API_KEY"] = VNSTOCK_KEY
+os.environ["VNSTOCK_TELEMETRY"] = "off"
 
-# Bảng tra cứu nhóm ngành dự phòng cuối cùng
+VN_TZ = timezone(timedelta(hours=7))
+SSI_HEADERS = {"Accept": "application/json", "User-Agent": "Mozilla/5.0"}
+
+# Bảng tra cứu nhóm ngành dự phòng
 SECTOR_MAP = {
+    "FRT": ("CTCP Bán lẻ Kỹ thuật số FPT", "Bán lẻ"),
+    "MWG": ("CTCP Đầu tư Thế Giới Di Động", "Bán lẻ"),
+    "FPT": ("CTCP FPT", "Công nghệ thông tin"),
+    "DGW": ("CTCP Thế Giới Số", "Bán lẻ / Công nghệ"),
+    "HPG": ("CTCP Tập đoàn Hòa Phát", "Thép & Vật liệu"),
+    "HSG": ("CTCP Tập đoàn Hoa Sen", "Thép & Vật liệu"),
+    "NKG": ("CTCP Thép Nam Kim", "Thép & Vật liệu"),
+    "DGC": ("CTCP Tập đoàn Hóa chất Đức Giang", "Hóa chất"),
+    "PVT": ("TCT CP Vận tải Dầu khí", "Vận tải / Dầu khí"),
+    "PVP": ("CTCP Vận tải Dầu khí Thái Bình Dương", "Vận tải / Dầu khí"),
+    "PVD": ("TCT CP Khoan và Dịch vụ Khoan Dầu khí", "Dầu khí"),
+    "PVS": ("TCT CP Dịch vụ Kỹ thuật Dầu khí VN", "Dầu khí"),
+    "HAH": ("CTCP Vận tải và Cảng biển Bình An", "Vận tải biển"),
     "VPB": ("Ngân hàng TMCP Việt Nam Thịnh Vượng", "Ngân hàng"),
     "STB": ("Ngân hàng TMCP Sài Gòn Thương Tín", "Ngân hàng"),
     "ACB": ("Ngân hàng TMCP Á Châu", "Ngân hàng"),
@@ -34,26 +52,17 @@ SECTOR_MAP = {
     "VCB": ("Ngân hàng TMCP Ngoại thương Việt Nam", "Ngân hàng"),
     "BID": ("Ngân hàng TMCP Đầu tư và Phát triển VN", "Ngân hàng"),
     "CTG": ("Ngân hàng TMCP Công Thương Việt Nam", "Ngân hàng"),
-    "ABB": ("Ngân hàng TMCP An Bình", "Ngân hàng"),
+    "SSI": ("CTCP Chứng khoán SSI", "Dịch vụ tài chính"),
+    "VND": ("CTCP Chứng khoán VNDIRECT", "Dịch vụ tài chính"),
+    "VCI": ("CTCP Chứng khoán Vietcap", "Dịch vụ tài chính"),
+    "HCM": ("CTCP Chứng khoán TP.HCM", "Dịch vụ tài chính"),
     "VHM": ("CTCP Vinhomes", "Bất động sản"),
     "NVL": ("CTCP Tập đoàn Đầu tư Địa ốc No Va", "Bất động sản"),
     "PDR": ("CTCP Phát triển Bất động sản Phát Đạt", "Bất động sản"),
     "DXG": ("CTCP Tập đoàn Đất Xanh", "Bất động sản"),
     "DIG": ("Tổng Cty CP Đầu tư Phát triển Xây dựng", "Bất động sản"),
-    "HPG": ("CTCP Tập đoàn Hòa Phát", "Thép & Vật liệu"),
-    "HSG": ("CTCP Tập đoàn Hoa Sen", "Thép & Vật liệu"),
-    "NKG": ("CTCP Thép Nam Kim", "Thép & Vật liệu"),
-    "SSI": ("CTCP Chứng khoán SSI", "Dịch vụ tài chính"),
-    "VND": ("CTCP Chứng khoán VNDIRECT", "Dịch vụ tài chính"),
-    "VCI": ("CTCP Chứng khoán Vietcap", "Dịch vụ tài chính"),
-    "HCM": ("CTCP Chứng khoán TP.HCM", "Dịch vụ tài chính"),
-    "FPT": ("CTCP FPT", "Công nghệ thông tin"),
-    "MWG": ("CTCP Đầu tư Thế Giới Di Động", "Bán lẻ"),
-    "FRT": ("CTCP Bán lẻ Kỹ thuật số FPT", "Bán lẻ"),
-    "PVP": ("CTCP Vận tải Dầu khí Thái Bình Dương", "Vận tải / Dầu khí"),
-    "PVT": ("TCT CP Vận tải Dầu khí", "Vận tải / Dầu khí"),
-    "PVD": ("TCT CP Khoan và Dịch vụ Khoan Dầu khí", "Dầu khí"),
-    "PVS": ("TCT CP Dịch vụ Kỹ thuật Dầu khí VN", "Dầu khí"),
+    "VNM": ("CTCP Sữa Việt Nam", "Thực phẩm & Đồ uống"),
+    "MSN": ("CTCP Tập đoàn Masan", "Tiêu dùng / Tiêu chuẩn"),
 }
 
 
@@ -61,7 +70,6 @@ SECTOR_MAP = {
 # CHUẨN HÓA GIÁ VÀ ĐÁNH GIÁ CHỈ SỐ
 # ==========================================
 def format_price(val):
-    """Chuẩn hóa giá về đơn vị VNĐ đầy đủ"""
     return val * 1000 if val < 1000 else val
 
 
@@ -124,31 +132,42 @@ def eval_volume(vol, vol_ratio):
 
 
 # ==========================================
-# TRUY XUẤT DỮ LIỆU REALTIME & HỒ SƠ DOANH NGHIỆP
+# TRUY XUẤT DỮ LIỆU REALTIME & DOANH NGHIỆP
 # ==========================================
+def get_fa_data(ticker):
+    try:
+        with open("data/watch_list.json", "r", encoding="utf-8") as f:
+            watch = json.load(f)
+        for item in watch:
+            if item["ticker"] == ticker:
+                return item
+        return None
+    except:
+        return None
+
+
 def get_company_info(ticker):
     ticker_str = ticker.upper()
 
-    # 1. Tự động lấy Tên & Nhóm ngành bằng vnstock
+    # 1. API TCBS (Tốc độ cực cao, chính xác 100% nhóm ngành)
     try:
-        from vnstock import Vnstock
-        stock = Vnstock().stock(symbol=ticker_str, source='VCI')
-        df_ov = stock.company.overview()
-        if df_ov is not None and not df_ov.empty:
-            row = df_ov.iloc[0]
-            name = row.get("organ_name") or row.get("company_name") or ticker_str
-            sector = row.get("icb_name3") or row.get("industry") or row.get("icb_name2") or "Tài chính / Khác"
-            exchange = row.get("exchange") or "HOSE"
-            return {"name": str(name), "exchange": str(exchange), "sector": str(sector)}
+        url = f"https://apipubks.tcbs.com.vn/stock-insight/v1/comp/{ticker_str}/overview"
+        r = requests.get(url, timeout=3)
+        if r.status_code == 200:
+            data = r.json()
+            name = data.get("shortName") or data.get("ticker") or ticker_str
+            sector = data.get("industryName") or data.get("subIndustryName")
+            if sector and not pd.isna(sector) and str(sector).strip().lower() not in ['nan', 'none', '']:
+                return {"name": str(name), "exchange": "HOSE/HNX", "sector": str(sector)}
     except Exception:
         pass
 
-    # 2. Dự phòng tra cứu Bảng SECTOR_MAP
+    # 2. Bảng tra cứu SECTOR_MAP
     if ticker_str in SECTOR_MAP:
         name, sector = SECTOR_MAP[ticker_str]
         return {"name": name, "exchange": "HOSE/HNX", "sector": sector}
 
-    # 3. Dự phòng từ watch_list.json
+    # 3. Tra cứu từ watch_list.json
     fa = get_fa_data(ticker_str)
     if fa and fa.get("sector"):
         return {
@@ -157,17 +176,29 @@ def get_company_info(ticker):
             "sector": fa.get("sector")
         }
 
-    return {"name": ticker_str, "exchange": "HOSE", "sector": "Chưa xác định"}
+    # 4. Vnstock API Key VIP
+    try:
+        from vnstock import Vnstock
+        stock = Vnstock(api_key=VNSTOCK_KEY).stock(symbol=ticker_str, source='VCI')
+        df_ov = stock.company.overview()
+        if df_ov is not None and not df_ov.empty:
+            row = df_ov.iloc[0].to_dict()
+            name = row.get("organ_name") or row.get("company_name") or ticker_str
+            sector = row.get("icb_name3") or row.get("industry") or "Sản xuất / Dịch vụ"
+            return {"name": str(name), "exchange": str(row.get("exchange", "HOSE")), "sector": str(sector)}
+    except Exception:
+        pass
+
+    return {"name": ticker_str, "exchange": "HOSE", "sector": "Sản xuất / Dịch vụ"}
 
 
 def fetch_stock_data(ticker):
-    """Lấy dữ liệu giá realtime từ vnstock, nếu lỗi mới dùng SQLite"""
+    """Lấy dữ liệu giá realtime từ vnstock sử dụng API Key VIP"""
     ticker_str = ticker.upper()
 
-    # Thử cào dữ liệu mới nhất từ vnstock
     try:
         from vnstock import Vnstock
-        stock = Vnstock().stock(symbol=ticker_str, source='VCI')
+        stock = Vnstock(api_key=VNSTOCK_KEY).stock(symbol=ticker_str, source='VCI')
         end_date = datetime.now(VN_TZ).strftime("%Y-%m-%d")
         start_date = (datetime.now(VN_TZ) - timedelta(days=180)).strftime("%Y-%m-%d")
         df = stock.quote.history(start=start_date, end=end_date)
@@ -193,18 +224,6 @@ def fetch_stock_data(ticker):
         conn.close()
         return df
     except Exception:
-        return None
-
-
-def get_fa_data(ticker):
-    try:
-        with open("data/watch_list.json", "r", encoding="utf-8") as f:
-            watch = json.load(f)
-        for item in watch:
-            if item["ticker"] == ticker:
-                return item
-        return None
-    except:
         return None
 
 
