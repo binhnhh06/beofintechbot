@@ -1,0 +1,70 @@
+{
+  "FPT": {
+    "name": "Công ty Cổ phần FPT",
+    "sector": "Công nghệ thông tin"
+  },
+  "SSI": {
+    "name": "Công ty Cổ phần Chứng khoán SSI",
+    "sector": "Dịch vụ tài chính"
+  },
+  "HPG": {
+    "name": "Công ty Cổ phần Tập đoàn Hòa Phát",
+    "sector": "Thép & Vật liệu xây dựng"
+  },
+  "VNM": {
+    "name": "Công ty Cổ phần Sữa Việt Nam",
+    "sector": "Thực phẩm & Đồ uống"
+  },
+  "TCB": {
+    "name": "Ngân hàng TMCP Kỹ thương Việt Nam",
+    "sector": "Ngân hàng"
+  },
+  "MBB": {
+    "name": "Ngân hàng TMCP Quân đội",
+    "sector": "Ngân hàng"
+  },
+  "VPB": {
+    "name": "Ngân hàng TMCP Việt Nam Thịnh Vượng",
+    "sector": "Ngân hàng"
+  },
+  "ACB": {
+    "name": "Ngân hàng TMCP Á Châu",
+    "sector": "Ngân hàng"
+  },
+  "VCB": {
+    "name": "Ngân hàng TMCP Ngoại thương Việt Nam",
+    "sector": "Ngân hàng"
+  },
+  "BID": {
+    "name": "Ngân hàng TMCP Đầu tư và Phát triển Việt Nam",
+    "sector": "Ngân hàng"
+  },
+  "CTG": {
+    "name": "Ngân hàng TMCP Công Thương Việt Nam",
+    "sector": "Ngân hàng"
+  },
+  "STB": {
+    "name": "Ngân hàng TMCP Sài Gòn Thương Tín",
+    "sector": "Ngân hàng"
+  },
+  "MWG": {
+    "name": "Công ty Cổ phần Đầu tư Thế Giới Di Động",
+    "sector": "Bán lẻ"
+  },
+  "MSN": {
+    "name": "Công ty Cổ phần Tập đoàn MaSan",
+    "sector": "Hàng tiêu dùng"
+  },
+  "VIC": {
+    "name": "Tập đoàn Vingroup - CTCP",
+    "sector": "Bất động sản"
+  },
+  "VHM": {
+    "name": "Công ty Cổ phần Vinhomes",
+    "sector": "Bất động sản"
+  },
+  "GAS": {
+    "name": "Tổng Công ty Khí Việt Nam - CTCP",
+    "sector": "Dầu khí"
+  }
+}
