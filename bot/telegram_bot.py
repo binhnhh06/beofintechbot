@@ -440,6 +440,8 @@ def start_bot_polling():
     print("🤖 Bot đang lắng nghe lệnh...")
     app.run_polling()
 
+# Gán alias để main.py import được cả 2 tên hàm
+run_bot = start_bot_polling
 
 if __name__ == "__main__":
     start_bot_polling()
