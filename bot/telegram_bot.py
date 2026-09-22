@@ -193,38 +193,88 @@ def get_company_info(ticker):
 
 
 def fetch_stock_data(ticker):
-    """Lấy dữ liệu giá realtime từ vnstock sử dụng API Key VIP"""
+    """Lấy dữ liệu giá realtime từ vnstock và tự động ghép giá mới nhất hôm nay từ TCBS"""
     ticker_str = ticker.upper()
+    df = None
 
+    # 1. Lấy dữ liệu lịch sử nến từ vnstock API Key
     try:
         from vnstock import Vnstock
-        stock = Vnstock(api_key=VNSTOCK_KEY).stock(symbol=ticker_str, source='VCI')
+
+        stock = Vnstock(api_key=VNSTOCK_KEY).stock(
+            symbol=ticker_str, source="VCI"
+        )
         end_date = datetime.now(VN_TZ).strftime("%Y-%m-%d")
-        start_date = (datetime.now(VN_TZ) - timedelta(days=180)).strftime("%Y-%m-%d")
+        start_date = (datetime.now(VN_TZ) - timedelta(days=180)).strftime(
+            "%Y-%m-%d"
+        )
         df = stock.quote.history(start=start_date, end=end_date)
         if df is not None and not df.empty:
-            df = df.rename(columns={
-                'time': 'date', 
-                'tradingDate': 'date', 
-                'match_price': 'close',
-                'volume': 'volume'
-            })
-            if 'open' not in df.columns: df['open'] = df['close']
-            if 'high' not in df.columns: df['high'] = df['close']
-            if 'low' not in df.columns: df['low'] = df['close']
-            return df
+            df = df.rename(
+                columns={
+                    "time": "date",
+                    "tradingDate": "date",
+                    "match_price": "close",
+                    "volume": "volume",
+                }
+            )
+            df["date"] = df["date"].astype(str).str[:10]
+            if "open" not in df.columns:
+                df["open"] = df["close"]
+            if "high" not in df.columns:
+                df["high"] = df["close"]
+            if "low" not in df.columns:
+                df["low"] = df["close"]
     except Exception:
         pass
 
-    # Dự phòng từ SQLite
-    try:
-        conn = sqlite3.connect("data/market_data.db")
-        query = f"SELECT date, open, high, low, close, volume FROM historical_ohlcv WHERE symbol = '{ticker_str}' ORDER BY date ASC"
-        df = pd.read_sql_query(query, conn)
-        conn.close()
-        return df
-    except Exception:
+    # Dự phòng từ SQLite nếu lỗi vnstock
+    if df is None or df.empty:
+        try:
+            conn = sqlite3.connect("data/market_data.db")
+            query = f"SELECT date, open, high, low, close, volume FROM historical_ohlcv WHERE symbol = '{ticker_str}' ORDER BY date ASC"
+            df = pd.read_sql_query(query, conn)
+            conn.close()
+        except Exception:
+            pass
+
+    if df is None or df.empty:
         return None
+
+    # 2. KIỂM TRA & CẬP NHẬT GIÁ REALTIME HÔM NAY TỪ TCBS (NẾU THIẾU NGÀY HÔM NAY)
+    today_str = datetime.now(VN_TZ).strftime("%Y-%m-%d")
+    last_date = str(df.iloc[-1]["date"])[:10]
+
+    if last_date < today_str:
+        try:
+            # Gọi API Overview của TCBS để lấy giá khớp và khối lượng mới nhất hôm nay
+            tcbs_url = f"https://apipubks.tcbs.com.vn/stock-insight/v1/comp/{ticker_str}/overview"
+            r = requests.get(tcbs_url, timeout=3)
+            if r.status_code == 200:
+                data = r.json()
+                price = data.get("price") or data.get("closePrice")
+                volume = data.get("volume") or data.get("totalVolume") or 0
+
+                if price and price > 0:
+                    # Chuẩn hóa giá về nghìn đồng nếu TCBS trả về đồng
+                    price_val = price / 1000.0 if price > 1000 else price
+                    new_row = pd.DataFrame(
+                        [
+                            {
+                                "date": today_str,
+                                "open": price_val,
+                                "high": price_val,
+                                "low": price_val,
+                                "close": price_val,
+                                "volume": volume,
+                            }
+                        ]
+                    )
+                    df = pd.concat([df, new_row], ignore_index=True)
+        except Exception:
+            pass
+
+    return df
 
 
 def load_trade_history():
