@@ -3,5 +3,5 @@ pandas
 ta
 python-telegram-bot
 schedule
-vnstock
+vnstock>=0.2.9
 pytz
