@@ -1,17 +1,11 @@
-import time  # <--- Thêm ở dòng đầu tiên
+import json
+import time
+from datetime import datetime
 
-# ... các đoạn code import và cấu hình khác của bạn ...
+# 1. Khai báo danh sách mã (BẮT BỦC ĐẶT TRƯỚC DÒNG VÒNG LẶP FOR)
+list_co_phieu = ["FPT", "SSI", "VPB", "CTG", "ACB", "HPG", "VHM"]
 
-# Vòng lặp thực tế đang có sẵn trong code của bạn:
+# 2. Vòng lặp chạy qua từng mã
 for ticker in list_co_phieu:
-    # Hàm lấy giá thực tế của bạn, nhớ thêm source="VND"
-    df = stock_historical_data(
-        symbol=ticker,
-        start_date="2026-09-01",
-        end_date="2026-09-24",
-        source="VND",  # <--- Thêm source để tránh bị chặn IP
-    )
-
-    # ... đoạn phân tích MA, RSI, phát tín hiệu của bạn ...
-
-    time.sleep(1)  # <--- Thêm dòng này ở cuối vòng lặp for
+    print(f"Đang tạo tín hiệu cho mã: {ticker}")
+    # ... các dòng code xử lý phía dưới của bạn giữ nguyên ...
